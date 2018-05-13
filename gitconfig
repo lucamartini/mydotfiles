@@ -1,0 +1,17 @@
+[user]
+	name = Luca Martini
+	email = luca.martini82@gmail.com
+	github = lucamartini
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[alias]
+	co = checkout
+	st = status
+[push]
+	default = simple
+[core]
+	editor = vim
+[credential]
+	helper = cache --timeout 21600
