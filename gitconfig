@@ -13,5 +13,6 @@
 	default = simple
 [core]
 	editor = vim
+	pager = more
 [credential]
 	helper = cache --timeout 21600
