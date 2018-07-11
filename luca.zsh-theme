@@ -7,7 +7,7 @@ ZSH_THEME_NVM_PROMPT_SUFFIX=""
 
 ### Git [±master ▾●]
 
-ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg_bold[green]%}±%{$reset_color%}%{$fg_bold[white]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg_bold[green]%}%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}]"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[cyan]%}▴%{$reset_color%}"
@@ -15,6 +15,11 @@ ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[magenta]%}▾%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
+
+bureau_git_project() {
+  local _name=$(command basename `git rev-parse --show-toplevel` 2> /dev/null) || return
+  echo "%{$fg[yellow]%}${_name}%{$reset_color%}"
+}
 
 bureau_git_branch () {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
@@ -68,7 +73,8 @@ bureau_git_prompt () {
   local _status=$(bureau_git_status)
   local _result=""
   if [[ "${_branch}x" != "x" ]]; then
-    _result="$ZSH_THEME_GIT_PROMPT_PREFIX$_branch"
+    local _name=$(bureau_git_project)
+    _result="$ZSH_THEME_GIT_PROMPT_PREFIX$_name:%{$fg_bold[white]%}$_branch"
     if [[ "${_status}x" != "x" ]]; then
       _result="$_result $_status"
     fi
@@ -111,19 +117,15 @@ get_space () {
 }
 
 _GIT='$(bureau_git_prompt)'
-_1LEFT="$_LIBERTY $_JOBS $_GIT $_USERNAME:$_PATH"
-_1RIGHT="[%* %D{%d-%m-%Y}]"
+_TIMESTAMP="[%*]"
+_TOTAL="$_LIBERTY $_TIMESTAMP $_JOBS $_GIT $_USERNAME:$_PATH"
 
 bureau_precmd () {
-  #_1SPACES=`get_space $_1LEFT $_1RIGHT`
-  #print -rP "$_1LEFT$_1SPACES$_1RIGHT"
-  print -rP "$_1LEFT"
+  print -rP "$_TOTAL"
 }
 
 setopt prompt_subst
 PROMPT=''
-#RPROMPT='$(bureau_git_prompt)'
-#RPROMPT='ciao'
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd bureau_precmd
