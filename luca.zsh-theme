@@ -118,7 +118,7 @@ get_space () {
 
 _GIT='$(bureau_git_prompt)'
 _TIMESTAMP="[%*]"
-_TOTAL="$_LIBERTY $_TIMESTAMP $_JOBS $_GIT $_USERNAME:$_PATH"
+_TOTAL="$_LIBERTY $_JOBS $_TIMESTAMP $_GIT $_USERNAME:$_PATH"
 
 bureau_precmd () {
   print -rP "$_TOTAL"
