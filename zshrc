@@ -1,11 +1,29 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/luca/.oh-my-zsh
+  export ZSH=/home/lmartini/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="luca"
+# ZSH_THEME="luca"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+git_project(){
+	git rev-parse 2> /dev/null
+	if [[ $? != 0 ]]
+	then 
+		echo ""
+	else
+		local name=$(basename `git rev-parse --show-toplevel` 2> /dev/null) 
+		echo -n "${name}"
+	fi
+}
+
+POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_project_name vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs time)
+POWERLEVEL9K_DIR_PATH_ABSOLUTE="true"
+POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +67,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(npm sudo zsh-syntax-highlighting)
+plugins=(zsh-nvm npm sudo docker zsh-syntax-highlighting)
 
 # User configuration
 # node PATH
@@ -57,6 +75,8 @@ export PATH="$HOME/.node/current/bin:$PATH"
 # PHP Composer PATH
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$PATH:/usr/local/go/bin
+export DOCKER_HOST=tcp://127.0.0.1:2375
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,7 +102,11 @@ alias diff="diff --color=always"
 
 #export CMAKE_PREFIX_PATH=$QT_PATH
 # shell is en
-export LANG=C
+export LANG=en_US.UTF-8
+export LANGUAGE=en.UTF-8
 export EDITOR=vim
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 unsetopt share_history
+
