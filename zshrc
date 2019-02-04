@@ -6,6 +6,7 @@
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="luca"
+POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 git_project(){
@@ -15,7 +16,7 @@ git_project(){
 
 POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir custom_project_name vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs command_execution_time time)
 POWERLEVEL9K_DIR_PATH_ABSOLUTE="true"
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 
