@@ -10,10 +10,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 git_project(){
 	git rev-parse 2> /dev/null
-	if [[ $? != 0 ]]
+	if [[ $? == 0 ]]
 	then 
-		echo ""
-	else
 		local name=$(basename `git rev-parse --show-toplevel` 2> /dev/null) 
 		echo -n "${name}"
 	fi
