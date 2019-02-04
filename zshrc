@@ -10,8 +10,11 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 git_project(){
-	local name=$(basename `git rev-parse --show-toplevel` ) 2> /dev/null 
-	[[ $? == 0 ]] && echo -n "${name}"
+	local repoTopLevel="$(command git rev-parse --show-toplevel 2> /dev/null)"
+	[[ $? != 0 || -z $repoTopLevel ]] && return
+    
+	local base="$(command basename $repoTopLevel 2> /dev/null)"
+	echo -n " $base"
 }
 
 POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
