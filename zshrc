@@ -20,8 +20,8 @@ git_project(){
 POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
 POWERLEVEL9K_CUSTOM_PROJECT_NAME_ICON=$'\uf7a1'
 POWERLEVEL9K_CUSTOM_PROJECT_NAME_BACKGROUND='orchid'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir custom_project_name vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh root_indicator background_jobs command_execution_time time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time status command_execution_time background_jobs ssh context dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_project_name vcs root_indicator)
 POWERLEVEL9K_DIR_PATH_ABSOLUTE="true"
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
