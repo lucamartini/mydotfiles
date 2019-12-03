@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/lmartini/.oh-my-zsh
+export ZSH=/home/lmartini/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -29,6 +29,8 @@ POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
 POWERLEVEL9K_ETC_ICON=''
+# POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -72,9 +74,10 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm npm sudo docker zsh-syntax-highlighting)
+plugins=(per-directory-history zsh-nvm npm sudo docker zsh-syntax-highlighting)
 
 # User configuration
+# export TERM="xterm-256color"
 # node PATH
 export PATH="$HOME/.node/current/bin:$PATH"
 # PHP Composer PATH
@@ -100,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 alias ls="ls --color=always"
-alias ll="ls -hl"
+alias ll="ls -htl"
 alias vi="vim"
 alias top="top -o %CPU"
 alias diff="diff --color=always"
@@ -113,5 +116,13 @@ export EDITOR=vim
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export ACCOUNTS=/mnt/c/Users/lmartini/nwg/services/accounts/accounts/index.js
+export NEWS=/mnt/c/Users/lmartini/nwg/services/news/news/index.js
+export ENERGY=/mnt/c/Users/lmartini/nwg/services/energy/energy/index.js
+export MYFOCUS=/mnt/c/Users/lmartini/nwg/services/myfocus/myfocus/index.js
+export NEWS=/mnt/c/Users/lmartini/nwg/services/news/news/index.js
+export ISTAT=/mnt/c/Users/lmartini/nwg/services/istat/istat/index.js
+export COURSES=/mnt/c/Users/lmartini/nwg/services/courses/courses/index.js
+export SEMINARS=/mnt/c/Users/lmartini/nwg/services/seminars/seminars/index.js
 unsetopt share_history
 
