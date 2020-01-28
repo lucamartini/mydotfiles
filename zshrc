@@ -20,8 +20,15 @@ git_project(){
 POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
 POWERLEVEL9K_CUSTOM_PROJECT_NAME_ICON=$'\uf7a1'
 POWERLEVEL9K_CUSTOM_PROJECT_NAME_BACKGROUND='orchid'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon time status command_execution_time background_jobs ssh context dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_project_name vcs root_indicator)
+
+node_env(){
+	echo -n "$NODE_ENV"
+}
+POWERLEVEL9K_CUSTOM_NODE_ENV="node_env"
+POWERLEVEL9K_CUSTOM_NODE_ENV_BACKGROUND='green'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon status command_execution_time background_jobs ssh context dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_project_name vcs root_indicator custom_node_env time)
 POWERLEVEL9K_DIR_PATH_ABSOLUTE="true"
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
 POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
@@ -74,7 +81,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(per-directory-history zsh-nvm npm sudo docker zsh-syntax-highlighting)
+plugins=(zsh-nvm npm sudo zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # User configuration
 # export TERM="xterm-256color"
@@ -124,5 +131,6 @@ export NEWS=/mnt/c/Users/lmartini/nwg/services/news/news/index.js
 export ISTAT=/mnt/c/Users/lmartini/nwg/services/istat/istat/index.js
 export COURSES=/mnt/c/Users/lmartini/nwg/services/courses/courses/index.js
 export SEMINARS=/mnt/c/Users/lmartini/nwg/services/seminars/seminars/index.js
+export USERS=/mnt/c/Users/lmartini/nwg/services/users/users/index.js
 unsetopt share_history
 
