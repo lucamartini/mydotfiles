@@ -7,7 +7,7 @@ export ZSH=/home/lmartini/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="luca"
 POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 git_project(){
 	local repoTopLevel="$(command git rev-parse --show-toplevel 2> /dev/null)"
