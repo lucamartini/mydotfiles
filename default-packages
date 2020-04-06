@@ -1,0 +1,5 @@
+# $NVM_DIR/default-packages
+
+npm-check
+serve
+diff-so-fancy
