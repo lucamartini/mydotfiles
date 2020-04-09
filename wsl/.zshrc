@@ -8,6 +8,7 @@ export ZSH=/home/lmartini/.oh-my-zsh
 # ZSH_THEME="luca"
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="apollo"
 
 git_project(){
 	local repoTopLevel="$(command git rev-parse --show-toplevel 2> /dev/null)"
@@ -89,7 +90,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export DOCKER_HOST=tcp://127.0.0.1:2375
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -111,7 +111,6 @@ source $ZSH/oh-my-zsh.sh
 alias ls="exa --classify"
 alias ll="exa --long --git"
 alias lt="exa --tree"
-alias cat="bat"
 alias find="fd"
 
 alias vi="vim"
