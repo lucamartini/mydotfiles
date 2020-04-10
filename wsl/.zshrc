@@ -106,11 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-#alias ls="ls --color=always"
-#alias ll="ls -htl"
-alias ls="exa --classify"
-alias ll="exa --long --git"
-alias lt="exa --tree"
+alias ls="ls --color=always"
+alias ll="ls -htl"
 alias find="fd"
 
 alias vi="vim"
