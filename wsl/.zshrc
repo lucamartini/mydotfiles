@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/lmartini/.oh-my-zsh
 
@@ -38,7 +45,7 @@ POWERLEVEL9K_HOME_SUB_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
 POWERLEVEL9K_ETC_ICON=''
 # POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,7 +89,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm npm sudo zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # User configuration
 # export TERM="xterm-256color"
@@ -136,3 +143,5 @@ export IVD=/mnt/c/Users/lmartini/nwg/services/ivd/ivd/index.js
 export FV=/mnt/c/Users/lmartini/nwg/services/fv/fv/index.js
 unsetopt share_history
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
