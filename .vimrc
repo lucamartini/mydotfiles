@@ -17,15 +17,24 @@ Plug 'sheerun/vim-polyglot'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/edge'
 Plug 'edkolev/tmuxline.vim'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
 set background=dark
 let g:gruvbox_contrast_light = 'hard'
-" let g:edge_style = 'aura'
+let g:edge_style = 'aura'
+let ayucolor="dark"
 
-" colorscheme gruvbox
-colorscheme edge
+if (has("termguicolors"))
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+
+colorscheme gruvbox
+" colorscheme ayu
+" colorscheme edge
 
 if exists("*ToggleBackground") == 0
 	function ToggleBackground()
