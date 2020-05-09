@@ -1,18 +1,19 @@
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
-
-
 set mouse=a
 set number
 set hlsearch
 set showcmd
 set wildmenu
 set wildmode=list:longest,full
+set hidden
+filetype plugin on
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-unimpaired'
 
 " themes
 Plug 'morhetz/gruvbox'
@@ -48,3 +49,9 @@ if exists("*ToggleBackground") == 0
 	endfunction
 	command BG call ToggleBackground()
 endif
+
+" expand active file directory with %%
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" autosource vimrc every save
+autocmd BufWritePost .vimrc source %
