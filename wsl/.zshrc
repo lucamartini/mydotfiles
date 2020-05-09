@@ -141,7 +141,9 @@ export HIRINGS=/mnt/c/Users/lmartini/nwg/services/hirings/hirings/index.js
 export USERS=/mnt/c/Users/lmartini/nwg/services/users/users/index.js
 export IVD=/mnt/c/Users/lmartini/nwg/services/ivd/ivd/index.js
 export FV=/mnt/c/Users/lmartini/nwg/services/fv/fv/index.js
+export CONSULTINGS=/mnt/c/Users/lmartini/nwg/services/consultings/consultings/index.js
 unsetopt share_history
+bindkey '^ ' autosuggest-execute
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

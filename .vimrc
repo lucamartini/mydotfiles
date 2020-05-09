@@ -1,12 +1,13 @@
-" set termguicolors
-
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
-let g:airline_powerline_fonts = 1
 
 set mouse=a
 set number
+set hlsearch
+set showcmd
+set wildmenu
+set wildmode=list:longest,full
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
@@ -25,6 +26,7 @@ set background=dark
 let g:gruvbox_contrast_light = 'hard'
 let g:edge_style = 'aura'
 let ayucolor="dark"
+let g:airline_powerline_fonts = 1
 
 if (has("termguicolors"))
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
