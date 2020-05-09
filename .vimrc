@@ -8,12 +8,14 @@ set wildmenu
 set wildmode=list:longest,full
 set hidden
 filetype plugin on
+runtime macros/matchit.vim
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 
 " themes
 Plug 'morhetz/gruvbox'
