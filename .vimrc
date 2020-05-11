@@ -7,8 +7,11 @@ set showcmd
 set wildmenu
 set wildmode=list:longest,full
 set hidden
-filetype plugin on
+" Enable file type detection and do language-dependent indenting.
+filetype plugin indent on
 runtime macros/matchit.vim
+" Copy indent from current line when starting a new line (typing <CR>)
+set autoindent
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
@@ -16,6 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+Plug 'dense-analysis/ale'
 
 " themes
 Plug 'morhetz/gruvbox'
@@ -30,6 +34,9 @@ let g:gruvbox_contrast_light = 'hard'
 let g:edge_style = 'aura'
 let ayucolor="dark"
 let g:airline_powerline_fonts = 1
+" Ale syntax check
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
 
 if (has("termguicolors"))
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
