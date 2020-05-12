@@ -38,6 +38,16 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#I #W #F',
+      \'c'    : '#P #T',
+      \'win'  : '#I #W #F',
+      \'cwin' : '#I #W #F',
+      \'x'    : '',
+      \'y'    : '%R',
+      \'z'    : '#H'}
+
 if (has("termguicolors"))
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
