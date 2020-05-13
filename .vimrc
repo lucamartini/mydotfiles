@@ -24,7 +24,7 @@ Plug 'dense-analysis/ale'
 " themes
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/edge'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
