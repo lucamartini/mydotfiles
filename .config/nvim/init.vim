@@ -18,6 +18,7 @@ set hidden
 " incremental search
 set ignorecase
 set smartcase
+set incsearch
 
 if has ('autocmd') " Remain compatible with earlier versions
 	augroup vimrc     " Source vim configuration upon save
@@ -66,7 +67,11 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'srcery-colors/srcery-vim'
 
+" experimenting
+" Plug 'liuchengxu/vim-which-key'
+
 call plug#end()
+
 
 set termguicolors
 set background=dark
@@ -83,6 +88,7 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 " nerdTree map
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Grepper
 let g:grepper = {}
