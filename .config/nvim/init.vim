@@ -1,4 +1,4 @@
-" show row number
+" show line number
 set number
 
 " tabs
@@ -15,10 +15,23 @@ set signcolumn=yes
 " set hidden buffer instead of abandoned
 set hidden
 
-" incremental search
+" incremental search highlight
 set ignorecase
 set smartcase
 set incsearch
+set inccommand=nosplit
+
+let g:highlightedyank_highlight_duration = 2000
+
+" show whitespaces
+set list
+set listchars=eol:$,tab:»\ ,trail:·,nbsp:+
+
+" backspace
+set backspace=indent,eol,start
+
+" reload a changed file
+set autoread
 
 if has ('autocmd') " Remain compatible with earlier versions
 	augroup vimrc     " Source vim configuration upon save
@@ -54,7 +67,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-commentary'
+
+" git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
 
 " nerdTree
 Plug 'preservim/nerdtree'
@@ -70,6 +88,7 @@ Plug 'srcery-colors/srcery-vim'
 " experimenting
 " Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -185,3 +204,5 @@ let g:startify_custom_header = [
       \ '    \   _-''                                                                `-_   /',
       \ '    `''''                                                                      ``''',
       \ ]
+
+
