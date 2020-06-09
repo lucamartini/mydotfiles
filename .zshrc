@@ -12,38 +12,9 @@ export ZSH=/home/lmartini/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="luca"
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="apollo"
 
-git_project(){
-	local repoTopLevel="$(command git rev-parse --show-toplevel 2> /dev/null)"
-	[[ $? != 0 || -z $repoTopLevel ]] && return
-    
-	local base="$(command basename $repoTopLevel 2> /dev/null)"
-	echo -n " $base"
-}
-
-POWERLEVEL9K_CUSTOM_PROJECT_NAME="git_project"
-POWERLEVEL9K_CUSTOM_PROJECT_NAME_ICON=$'\uf7a1'
-POWERLEVEL9K_CUSTOM_PROJECT_NAME_BACKGROUND='orchid'
-
-node_env(){
-	echo -n "$NODE_ENV"
-}
-POWERLEVEL9K_CUSTOM_NODE_ENV="node_env"
-POWERLEVEL9K_CUSTOM_NODE_ENV_BACKGROUND='green'
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon status command_execution_time background_jobs ssh context dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_project_name vcs root_indicator custom_node_env time)
-POWERLEVEL9K_DIR_PATH_ABSOLUTE="true"
-POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
-POWERLEVEL9K_RPROMPT_ON_NEWLINE="true"
-POWERLEVEL9K_HOME_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON=''
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_ETC_ICON=''
 # POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 
@@ -89,14 +60,13 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions)
+plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions fzf)
+# zsh-autocomplete
 
 # User configuration
-# export TERM="xterm-256color"
-export PATH=$PATH:/usr/local/go/bin
+# PATH
 export PATH=$PATH:~/bin
-export PATH="$HOME/.cargo/bin:$PATH"
-export DOCKER_HOST=tcp://127.0.0.1:2375
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -118,32 +88,27 @@ alias ll="ls -htl"
 alias find="fd"
 
 alias vi="vim"
+alias vim="nvim"
 alias top="top -o %CPU"
 alias diff="diff --color=always"
 alias npmc="npm run commit"
 
-#export CMAKE_PREFIX_PATH=$QT_PATH
 # shell is en
 export LANG=en_US.UTF-8
 export LANGUAGE=en.UTF-8
-export EDITOR=vim
+export EDITOR=nvim
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export FZF_DEFAULT_COMMAND='rg --hidden --files'
 
-export ACCOUNTS=/mnt/c/Users/lmartini/nwg/services/accounts/accounts/index.js
-export NEWS=/mnt/c/Users/lmartini/nwg/services/news/news/index.js
-export ENERGY=/mnt/c/Users/lmartini/nwg/services/energy/energy/index.js
-export MYFOCUS=/mnt/c/Users/lmartini/nwg/services/myfocus/myfocus/index.js
-export NEWS=/mnt/c/Users/lmartini/nwg/services/news/news/index.js
-export ISTAT=/mnt/c/Users/lmartini/nwg/services/istat/istat/index.js
-export COURSES=/mnt/c/Users/lmartini/nwg/services/courses/courses/index.js
-export HIRINGS=/mnt/c/Users/lmartini/nwg/services/hirings/hirings/index.js
-export USERS=/mnt/c/Users/lmartini/nwg/services/users/users/index.js
-export IVD=/mnt/c/Users/lmartini/nwg/services/ivd/ivd/index.js
-export FV=/mnt/c/Users/lmartini/nwg/services/fv/fv/index.js
-export CONSULTINGS=/mnt/c/Users/lmartini/nwg/services/consultings/consultings/index.js
-unsetopt share_history
 bindkey '^ ' autosuggest-execute
+
+# machine related config (e.g. WSL2 or Arch)
+if [ -f ~/.local.sh ]; then
+	source ~/.local.sh
+fi
+
+unsetopt share_history
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
