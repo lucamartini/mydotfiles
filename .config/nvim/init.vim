@@ -25,7 +25,8 @@ let g:highlightedyank_highlight_duration = 2000
 
 " show whitespaces
 set list
-set listchars=eol:$,tab:»\ ,trail:·,nbsp:+
+set listchars=eol:¬,tab:»\ ,trail:·,extends:→,precedes:←,nbsp:+
+set showbreak=↪\
 
 " backspace
 set backspace=indent,eol,start
@@ -34,27 +35,27 @@ set backspace=indent,eol,start
 set autoread
 
 if has ('autocmd') " Remain compatible with earlier versions
-	augroup vimrc     " Source vim configuration upon save
-		autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-		autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-	augroup END
+  augroup vimrc     " Source vim configuration upon save
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
 endif " has autocmd
 
 if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs 
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 if exists("*ToggleBackground") == 0
-        function ToggleBackground()
-                if &background == "dark"
-                        set background=light
-                else
-                        set background=dark
-                endif
-        endfunction
-      command BG call ToggleBackground()
+  function ToggleBackground()
+    if &background == "dark"
+      set background=light
+    else
+      set background=dark
+    endif
+  endfunction
+  command BG call ToggleBackground()
 endif
 
 
@@ -62,12 +63,15 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -81,6 +85,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " colorschemes
+" Plug 'edkolev/tmuxline.vim'
+
+
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'srcery-colors/srcery-vim'
@@ -89,9 +96,22 @@ Plug 'srcery-colors/srcery-vim'
 " Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
+" Plug 'ap/vim-css-color'
+" Plug 'justinmk/vim-dirvish'
+" Plug 'severin-lemaignan/vim-minimap'
 
 call plug#end()
 
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W #F'],
+      \'cwin' : ['#I', '#W #F #P'],
+      \'x'    : '#{prefix_highlight}',
+      \'y'    : ['%a %Y-%m-%d', '%R'],
+      \'z'    : '#(whoami)@#H',
+      \'options': {
+      \'status-justify': 'left'}
+      \}
 
 set termguicolors
 set background=dark
