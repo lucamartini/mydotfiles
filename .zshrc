@@ -60,7 +60,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions fzf)
+plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions fzf zsh-edit k)
 # zsh-autocomplete
 
 # User configuration
