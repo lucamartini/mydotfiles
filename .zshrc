@@ -89,7 +89,7 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 alias ls="ls --color=always"
 alias ll="ls -htl"
-alias lc="colorls -lA --sd"
+alias lc="colorls --long --almost-all --git-status --sort-dirs"
 alias find="fd"
 
 alias vi="vim"
