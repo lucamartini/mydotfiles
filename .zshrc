@@ -66,6 +66,7 @@ plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-compl
 # User configuration
 # PATH
 export PATH=$PATH:~/bin
+export PATH=$PATH:~/.gem/ruby/2.7.0/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,8 +84,12 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 alias ls="ls --color=always"
 alias ll="ls -htl"
+alias lc="colorls -lA --sd"
 alias find="fd"
 
 alias vi="vim"
