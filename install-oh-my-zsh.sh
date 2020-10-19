@@ -7,5 +7,4 @@ git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 git clone https://github.com/zdharma/fast-syntax-highlighting.git $ZSH_CUSTOM/plugins/fast-syntax-highlighting
 git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
-git clone https://github.com/marlonrichert/zsh-edit $ZSH_CUSTOM/plugins/zsh-edit
 
