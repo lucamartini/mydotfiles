@@ -225,4 +225,4 @@ let g:startify_custom_header = [
       \ '    `''''                                                                      ``''',
       \ ]
 
-
+let g:startify_custom_footer = "startify#pad(['', 'version: ' . matchstr(execute('version'), 'NVIM v\\z\\s[^\\n]\*'), ''])"
