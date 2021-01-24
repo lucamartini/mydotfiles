@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/lmartini/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -60,13 +60,12 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions fzf zsh-edit k)
+plugins=(zsh-nvm npm sudo fast-syntax-highlighting zsh-autosuggestions zsh-completions fzf k)
 # zsh-autocomplete
 
 # User configuration
 # PATH
 export PATH=$PATH:~/bin
-export PATH=$PATH:~/.gem/ruby/2.7.0/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,8 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-
-source $(dirname $(gem which colorls))/tab_complete.sh
 
 alias ls="ls --color=always"
 alias ll="ls -htl"
